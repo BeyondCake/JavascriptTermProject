@@ -26,6 +26,7 @@
         if (text == 'storage')
         {
             storageLink()
+            console.log('hi')
         }
         if (text == 'bye')
         {
