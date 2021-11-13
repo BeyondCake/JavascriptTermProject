@@ -20,7 +20,7 @@
         }
         if (text == 'walk')
         {
-            walk()
+            timer = window.setInterval(walk, 100) //moved setInterval from walk function to here 
             console.log('text is step')
         }
         if (text == 'storage')
@@ -30,7 +30,7 @@
         }
         if (text == 'bye')
         {
-            alienImage.style.visibility = 'none';
+            alienImage.style.display = 'none';
         }
         if (text == 'stop')
         {
@@ -56,8 +56,10 @@
     {
         var alienImage = document.createElement("img")
         alienImage.id="a"
-        alienImage.src = "./images/alien/alienrwalk0.gif"
+        alienImage.src = "images/alien/alienrwalk0.gif"
         document.body.appendChild(alienImage)
+        a.style.position = 'absolute'
+        a.style.left = 0
         //This just renders the alien onto the page. 
     }
 
@@ -66,10 +68,9 @@
     
     function step()
     {
-        stepNumber++
-        stepNumber = stepNumber % 30
-        a.src = "images/alien/alienrwalk" + stepNumber + ".gif"
-        timer = window.setInterval(step, 100)
+        let walkNumber = stepNumber % 30
+        a.src = "images/alien/alienrwalk" + walkNumber + ".gif"
+        stepNumber += 1
     }
 
     //the alien is now walking but very choppily
@@ -77,7 +78,7 @@
     function walk()
     {
         step()
-        a.style.left = parseInt(a.style.left) + 10 + "px"
+        a.style.left = parseInt(a.style.left) + 2 + 'px'
     }
 
     function stop()
