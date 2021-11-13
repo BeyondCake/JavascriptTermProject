@@ -1,15 +1,22 @@
     var textArea = document.createElement("textarea");
     textArea.className = "textbox"
     document.body.appendChild(textArea);
+
     
-    
+
     var submitButton = document.createElement("button");
     submitButton.id = "submit"
     submitButton.textContent = "Submit"
     document.body.appendChild(submitButton);
     
     var button = document.getElementById("submit")
-
+    document.getElementById("textbox")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("submit").click();
+    }
+})
     button.onclick = function checkText()
     {
         var text = textArea.value.toLowerCase();
@@ -30,7 +37,7 @@
         }
         if (text == 'bye')
         {
-            alienImage.style.display = 'none';
+            a.style.display = 'none';
         }
         if (text == 'stop')
         {
